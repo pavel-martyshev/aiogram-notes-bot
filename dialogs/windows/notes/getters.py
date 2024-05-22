@@ -1,4 +1,4 @@
-from typing import Dict, TYPE_CHECKING, Union, List
+from typing import Dict, TYPE_CHECKING, Union, List, Any
 
 from aiogram.types import Chat
 from aiogram_dialog import DialogManager
