@@ -49,11 +49,16 @@ async def save_note_handler(message: Message, widget: MessageInput, manager: Dia
         note = message.text
 
         user_id = str(message.from_user.id)
+
         await add_note(name=user_id, mapping={name.capitalize(): note})
+
         logger.info(f'{user_id} saved the note')
+
         await _pop_extra_data(manager)
         await message.answer(i18n.success())
         await manager.switch_to(state=NotesSG.notes_menu)
+
+    await message.delete()
 
 
 async def get_note_handler(call: CallbackQuery, button: Button, manager: DialogManager, note_name: str) -> None:
